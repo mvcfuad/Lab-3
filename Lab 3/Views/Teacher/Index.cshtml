@@ -1,0 +1,63 @@
+﻿@model List<Teacher>
+@{
+}
+
+<h2 class="text-center mb-5">List of Teachers</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="Teacher" asp-action="Create">New Teacher</a> 
+    </div>
+    <div class="col">
+
+    </div>
+</div>  
+
+<div class="row">
+    <div class="col-md-6">
+        <form class="d-flex" asp-action="Index" asp-controller="Teacher" method="get">
+            <input name="searchString" class="form-control me-1" type="search" placeholder="Search by name" aria-label="Search" />
+            <button class="btn btn-dark" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Subject</th>
+            <th>Assigned Classes</th>
+            <th>Teaching (in years)</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var teacher in Model)
+        {
+            <tr>
+                <td>@teacher.Id</td>
+                <td>@teacher.Name</td>
+                <td>@teacher.Email</td>
+                <td>@teacher.Phone</td>
+                <td>@teacher.Subject</td>
+                <td>@teacher.AssignedClasses</td>
+                <td>@teacher.teachingYears</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="Teacher" asp-action="Edit" asp-route-id="@teacher.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Teacher" asp-action="Delete" asp-route-id="@teacher.Id" 
+                    onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

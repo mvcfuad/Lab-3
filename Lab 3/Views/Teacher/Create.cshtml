@@ -1,0 +1,92 @@
+﻿@model TeacherDto
+@{
+}
+
+
+
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">New Teacher</h2>
+        
+        <form method="post"> 
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Phone</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Phone">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <!-- Subject Dropdown -->
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Subject</label>
+                <div class="col-sm-8">
+                    <!-- Dropdown list for Subject -->
+                    <select class="form-control" asp-for="Subject">
+                        <option value="">Select a Subject</option>
+                        <option value="Math">Math</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Business">Business</option>
+                    </select>
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- End Subject Dropdown -->
+
+
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Assigned Classes</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="AssignedClasses">
+                    <span asp-validation-for="AssignedClasses" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Years of Teaching</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="teachingYears">
+                    <span asp-validation-for="teachingYears" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <!-- Submit and Cancel Buttons-->
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                <a class="btn btn-outline-primary" asp-controller="Teacher" asp-action="Index" role="button">Cancel</a>
+                </div>
+            </div>
+
+        </form>
+    
+    
+    </div>
+</div>
